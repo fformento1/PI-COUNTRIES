@@ -41,6 +41,7 @@ router.get("/", (req, res) => {
                     name: el.name,
                     flags: el.flags,
                     continents: el.continents,
+                    id: el.id,
                   };
                 })
               );
@@ -52,6 +53,7 @@ router.get("/", (req, res) => {
                 name: el.name,
                 flags: el.flags,
                 continents: el.continents,
+                id: el.id,
               };
             })
           );
@@ -70,6 +72,7 @@ router.get("/", (req, res) => {
                 name: el.name,
                 flags: el.flags,
                 continents: el.continents,
+                id: el.id,
               };
             })
           );
@@ -81,6 +84,7 @@ router.get("/", (req, res) => {
             name: el.name,
             flags: el.flags,
             continents: el.continents,
+            id: el.id,
           };
         })
       );
@@ -89,7 +93,19 @@ router.get("/", (req, res) => {
 });
 
 router.get("/:id", (req, res) => {
-  res.send(req.params.id);
+  Country.findByPk(req.params.id, { include: Activity }).then((data) =>
+    res.json({
+      flags: data.flags,
+      name: data.name,
+      continents: data.continents,
+      id: data.id,
+      capital: data.capital,
+      subregion: data.subregion,
+      area: data.area,
+      population: data.population,
+      activities: data.activities,
+    })
+  );
 });
 
 module.exports = router;
