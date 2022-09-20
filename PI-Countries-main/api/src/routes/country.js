@@ -4,7 +4,7 @@ const fetch = require("node-fetch");
 const { Country, Activity } = require("../db");
 
 router.get("/", (req, res) => {
-  Country.findAll().then((data) => {
+  Country.findAll({ include: Activity }).then((data) => {
     if (data.length === 0) {
       fetch("https://restcountries.com/v3/all")
         .then((data) => data.json())
@@ -42,6 +42,7 @@ router.get("/", (req, res) => {
                     flags: el.flags,
                     continents: el.continents,
                     id: el.id,
+                    activities: [],
                   };
                 })
               );
@@ -54,6 +55,7 @@ router.get("/", (req, res) => {
                 flags: el.flags,
                 continents: el.continents,
                 id: el.id,
+                activities: [],
               };
             })
           );
@@ -73,6 +75,7 @@ router.get("/", (req, res) => {
                 flags: el.flags,
                 continents: el.continents,
                 id: el.id,
+                activities: el.activities,
               };
             })
           );
@@ -85,6 +88,7 @@ router.get("/", (req, res) => {
             flags: el.flags,
             continents: el.continents,
             id: el.id,
+            activities: el.activities,
           };
         })
       );
