@@ -1,9 +1,11 @@
-import './App.css';
+import "./App.css";
+import CountriesCards from "./Components/CountriesCards/CountriesCards";
+import { Route, Switch } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <h1>Henry Countries</h1>
+      <Route path="/home" component={CountriesCards} />
     </div>
   );
 }
