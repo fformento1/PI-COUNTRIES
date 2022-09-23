@@ -23,6 +23,7 @@ export const CountriesCards = () => {
               name={el.name}
               flags={el.flags}
               continents={el.continents}
+              id={el.id}
             />
           ))
         ) : (
