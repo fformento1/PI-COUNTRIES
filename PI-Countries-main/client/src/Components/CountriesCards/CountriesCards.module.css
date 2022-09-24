@@ -4,3 +4,16 @@
     width: 100%;
     flex-wrap: wrap;
 }
+
+.countriesContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+}
+
+.divPaginado {
+    display: flex;
+    height: 200px;
+}

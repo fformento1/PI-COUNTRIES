@@ -4,6 +4,10 @@ import {
   GET_COUNTRY_BY_NAME,
   CREATE_ACTIVITY,
   GET_ALL_ACTIVITIES,
+  FILTER_BY_CONTINENT,
+  FILTER_BY_ACTIVITY,
+  ORDER_BY_NAME,
+  ORDER_BY_POPULATION,
 } from "../actions";
 
 const initialState = {
@@ -41,6 +45,8 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         activities: action.payload,
       };
+    case FILTER_BY_CONTINENT:
+      return {};
     default:
       return state;
   }
