@@ -62,11 +62,11 @@ router.get("/", (req, res) => {
         });
     } else {
       if (req.query.name) {
-        let countryFiltered = data.filter(
-          (el) => req.query.name.toLowerCase() === el.name.toLowerCase()
+        let countryFiltered = data.filter((el) =>
+          el.name.toLowerCase().includes(req.query.name.toLowerCase())
         );
         if (countryFiltered.length === 0) {
-          return res.json("Country not found");
+          return res.status(400).json({ error: "Country not found" });
         } else {
           return res.json(
             countryFiltered.map((el) => {
