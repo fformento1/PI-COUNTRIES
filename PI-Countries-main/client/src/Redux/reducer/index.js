@@ -46,7 +46,38 @@ const rootReducer = (state = initialState, action) => {
         activities: action.payload,
       };
     case FILTER_BY_CONTINENT:
-      return {};
+      const allCountries = state.allCountries;
+      let countriesFiltered = [];
+      if (action.payload === "All continents") {
+        countriesFiltered = allCountries;
+      } else {
+        countriesFiltered = allCountries.filter(
+          (el) => el.continents === action.payload
+        );
+      }
+
+      return {
+        ...state,
+        countries: countriesFiltered,
+      };
+    case FILTER_BY_ACTIVITY:
+      const countriesActivities = state.allCountries;
+      let countriesActivitiesFiltered = [];
+      if (action.payload === "All activities") {
+        countriesActivitiesFiltered = countriesActivities;
+      } else {
+        countriesActivitiesFiltered = countriesActivities.filter((el) => {
+          for (let i = 0; i < el.activities.length; i++) {
+            if (el.activities[i].name === action.payload) {
+              return true;
+            }
+          }
+        });
+      }
+      return {
+        ...state,
+        countries: countriesActivitiesFiltered,
+      };
     default:
       return state;
   }

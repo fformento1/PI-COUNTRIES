@@ -1,10 +1,10 @@
 import React from "react";
 import s from "../Paginado/Paginado.module.css";
 
-export const Pagination = ({ countriesPerPage, totalCountries, paginate }) => {
+export const Pagination = ({ totalCountries, paginate }) => {
   const pageNumbers = [];
 
-  for (let i = 1; i < Math.ceil(totalCountries / countriesPerPage); i++) {
+  for (let i = 1; i < Math.ceil(totalCountries / 10); i++) {
     pageNumbers.push(i);
   }
 
