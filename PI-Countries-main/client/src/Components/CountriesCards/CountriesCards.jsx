@@ -7,6 +7,8 @@ import {
   getAllActivities,
   filterByContinent,
   filterByActivity,
+  orderByName,
+  orderByPopulation,
 } from "../../Redux/actions";
 import s from "./CountriesCards.module.css";
 import Pagination from "../Paginado/Paginado";
@@ -52,6 +54,20 @@ export const CountriesCards = () => {
     dispatch(filterByActivity(e.target.value));
   }
 
+  function handleSortName(e) {
+    e.preventDefault();
+    setCurrentPage(1);
+    dispatch(orderByName(e.target.value));
+    setOrden(`Ordenado ${e.target.value}`);
+  }
+
+  function handleSortPopulation(e) {
+    e.preventDefault();
+    setCurrentPage(1);
+    dispatch(orderByPopulation(e.target.value));
+    setOrden(`Ordenado ${e.target.value}`);
+  }
+
   return (
     <div className={s.div}>
       <div className={s.divSelect}>
@@ -78,6 +94,16 @@ export const CountriesCards = () => {
           {activities.map((el) => {
             return <option>{el.name}</option>;
           })}
+        </select>
+        <select onChange={(e) => handleSortName(e)} className={s.select}>
+          <option>Name</option>
+          <option>A-Z</option>
+          <option>Z-A</option>
+        </select>
+        <select onChange={(e) => handleSortPopulation(e)} className={s.select}>
+          <option>Population</option>
+          <option>Lower population</option>
+          <option>Higher population</option>
         </select>
       </div>
       <div className={s.divPaginado}>

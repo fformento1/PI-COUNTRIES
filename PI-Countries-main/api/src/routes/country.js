@@ -43,6 +43,7 @@ router.get("/", (req, res) => {
                     continents: el.continents,
                     id: el.id,
                     activities: [],
+                    population: el.population,
                   };
                 })
               );
@@ -56,6 +57,7 @@ router.get("/", (req, res) => {
                 continents: el.continents,
                 id: el.id,
                 activities: [],
+                population: el.population,
               };
             })
           );
@@ -76,6 +78,7 @@ router.get("/", (req, res) => {
                 continents: el.continents,
                 id: el.id,
                 activities: el.activities,
+                population: el.population,
               };
             })
           );
@@ -89,6 +92,7 @@ router.get("/", (req, res) => {
             continents: el.continents,
             id: el.id,
             activities: el.activities,
+            population: el.population,
           };
         })
       );

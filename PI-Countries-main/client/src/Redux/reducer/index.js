@@ -78,6 +78,69 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         countries: countriesActivitiesFiltered,
       };
+    case ORDER_BY_NAME:
+      let allCountriesFilterName = state.allCountries;
+      let sortedArr;
+      if (action.payload === "Name") {
+        sortedArr = allCountriesFilterName;
+      } else {
+        sortedArr =
+          action.payload === "A-Z"
+            ? state.countries.sort(function (a, b) {
+                if (a.name > b.name) {
+                  return 1;
+                }
+                if (b.name > a.name) {
+                  return -1;
+                }
+                return 0;
+              })
+            : state.countries.sort(function (a, b) {
+                if (a.name > b.name) {
+                  return -1;
+                }
+                if (b.name > a.name) {
+                  return 1;
+                }
+                return 0;
+              });
+      }
+      return {
+        ...state,
+        countries: sortedArr,
+      };
+    case ORDER_BY_POPULATION:
+      const allCountriesFilterPopulation = state.allCountries;
+      let sortedArrPopulation;
+      if (action.payload === "Population") {
+        sortedArrPopulation = allCountriesFilterPopulation;
+      } else {
+        sortedArrPopulation =
+          action.payload === "Lower population"
+            ? state.countries.sort(function (a, b) {
+                if (Number(a.population) > Number(b.population)) {
+                  return 1;
+                }
+                if (Number(b.population) > Number(a.population)) {
+                  return -1;
+                }
+                return 0;
+              })
+            : state.countries.sort(function (a, b) {
+                if (Number(a.population) > Number(b.population)) {
+                  return -1;
+                }
+                if (Number(b.population) > Number(a.population)) {
+                  return 1;
+                }
+                return 0;
+              });
+      }
+
+      return {
+        ...state,
+        countries: sortedArrPopulation,
+      };
     default:
       return state;
   }
