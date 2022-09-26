@@ -22,6 +22,7 @@ export const CountriesCards = () => {
     dispatch(getAllActivities());
   }, []);
 
+  const [orden, setOrden] = useState("");
   //Paginado
   const [currentPage, setCurrentPage] = useState(1);
   const [countriesPerPage, setCountriesPerPage] = useState(9);
@@ -32,6 +33,9 @@ export const CountriesCards = () => {
     setCountriesPerPage(10);
   }
 
+  if (countries.error) {
+    return <div>Country not found</div>;
+  }
   const indexOfLastCountry = currentPage * countriesPerPage;
   const indexOfFirstCountry = indexOfLastCountry - countriesPerPage;
   const currentCountries = countries?.slice(
@@ -42,7 +46,6 @@ export const CountriesCards = () => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   //Filtrados
-  const [orden, setOrden] = useState("");
 
   function handleFilterByContinent(e) {
     setCurrentPage(1);
