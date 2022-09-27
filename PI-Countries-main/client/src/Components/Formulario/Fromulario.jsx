@@ -44,6 +44,11 @@ export const CreateActivity = () => {
     }
   };
 
+  const handleDelete = (country) => {
+    let countriesFiltrados = selectCountries.filter((el) => el !== country);
+    setSelectCountries(countriesFiltrados);
+  };
+
   const dispatch = useDispatch();
   function handleSubmit(e) {
     e.preventDefault();
@@ -57,18 +62,18 @@ export const CreateActivity = () => {
       difficulty !== "" &&
       duration !== "" &&
       season !== "" &&
-      selectCountries !== ""
+      selectCountries.length > 0
     ) {
       let inputsOrdenado = {
         name: name,
-        difficulty: difficulty,
-        duration: duration,
-        season: season,
-        countries: selectCountries.map((el) => el.id),
+        dificultad: difficulty,
+        duracion: Number(duration),
+        temporada: season,
+        countries: selectCountries,
       };
       dispatch(createActivity(inputsOrdenado));
-
-      alert("Congratulations! Your activity has been successfully created.");
+    } else {
+      alert("You must complete all fields!");
     }
   }
 
@@ -162,7 +167,7 @@ export const CreateActivity = () => {
         </div>
         <span>{errorSeason}</span>
         <div>
-          <label className={s.divLabel}>Countries:</label>
+          <label className={s.divLabel}>Countries code:</label>
           <select
             onChange={(e) => {
               if (e.target.value === "-") {
@@ -184,6 +189,14 @@ export const CreateActivity = () => {
               <option>Loading...</option>
             )}
           </select>
+          <div>
+            {selectCountries.map((el) => (
+              <div key={el}>
+                <span>{el}</span>
+                <button onClick={() => handleDelete(el)}>X</button>
+              </div>
+            ))}
+          </div>
         </div>
         <span>{errorSelectCountries}</span>
         <div>

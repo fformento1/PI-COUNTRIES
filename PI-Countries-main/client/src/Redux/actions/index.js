@@ -44,16 +44,28 @@ export const getCountryByName = (name) => (dispatch) => {
     .catch((err) => console.log(err.message));
 };
 
-export const createActivity = () => (dispatch) => {
-  return fetch("http://localhost:3001/activities")
-    .then((data) => data.json())
-    .then((data) =>
-      dispatch({
-        type: CREATE_ACTIVITY,
-        payload: data,
-      })
-    )
-    .catch((err) => console.log(err.message));
+export const createActivity = (activity) => (dispatch) => {
+  const options = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(activity),
+  };
+  return (
+    fetch("http://localhost:3001/activities", options)
+      //.then((data) => data.json())
+      //.then((data) =>
+      //  dispatch({
+      //    type: CREATE_ACTIVITY,
+      //    payload: data,
+      //  })
+      //)
+      .then((data) =>
+        alert("Congratulations! Your activity has been successfully created.")
+      )
+      .catch((err) => alert(err.message))
+  );
 };
 
 export const getAllActivities = () => (dispatch) => {
