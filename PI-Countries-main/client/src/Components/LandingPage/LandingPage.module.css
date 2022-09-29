@@ -1,26 +1,136 @@
 .div {
     min-height: 100vh;
     display: flex;
+    flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
     background: url("../../background\ landing.jpg") center center fixed no-repeat;
     background-size: cover;
+}
 
+.divHeader {
+    height: 15vh;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.divContenedorHeader {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content:center;
+    width: 50%;
+}
+
+.divMain {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: flex-end;
+    height: 70vh;
+    width: 100vw;
+    color: beige;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    font-weight: lighter;
+    letter-spacing: 0, 3rem;
+}
+
+.divLogosEmpresas {
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+    justify-content: flex-end;
+    width: 100vw;
+    height: 100%;
+    color: beige;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    font-weight: lighter;
+    letter-spacing: 0, 3rem;
+}
+
+.divContenedorLogos {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    color: beige;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    font-weight: lighter;
+    letter-spacing: 0, 3rem;
+}
+
+.divFooter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    color: beige;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    font-weight: lighter;
+    letter-spacing: 0.3rem;
 }
 
 .button {
     transition: transform .5s;
-    margin-left: 15vw;
-    margin-top: 8vh;
-    width: 20vw;
     height: 10vh;
-    border: 8px rgb(107, 39, 39) solid;
+    border: 5px solid rgba(128, 128, 128, 0.616) ;
     border-radius: 5px;
+    background: transparent;
+    font-size:xx-large;
+    display: flex;
+align-items: center;
+justify-items: center;
+}
+
+.fontHome {
+    color:rgb(218, 218, 192);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: xx-large;
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 1.8rem;
+}
+
+.button:hover {
+    transform: scale(1.2);
+}
+
+.img {
+    transition: transform .5s;
+    width: 10vw;    
+    background: transparent;
+    font-size: x-large;
+    color: white;
+
+}
+
+.img:hover {
+    transform: scale(1.2);
+}
+
+.imgFooter {
+    transition: transform .5s;
+    width: 5vw;
     background: transparent;
     font-size: x-large;
     color: white;
 }
 
-.button:hover {
+.imgFooter:hover {
     transform: scale(1.2);
+}
+
+.fontHome1 {
+    color: beige;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    font-weight: lighter;
+    letter-spacing: 0.2rem;
 }

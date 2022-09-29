@@ -123,7 +123,7 @@ export const CountriesCards = () => {
             />
           ))
         ) : (
-          <h1>Cargando</h1>
+          <h1>Loading...</h1>
         )}
       </div>
     </div>

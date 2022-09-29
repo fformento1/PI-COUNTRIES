@@ -5,11 +5,11 @@ import s from "./CountryCard.module.css";
 export const CountryCard = (props) => {
   return (
     <div>
-      <Link to={`/detail/${props.id}`}>
+      <Link to={`/detail/${props.id}`} className={s.link}>
         <div className={s.div}>
-          <span>{props.name}</span>
+          <span className={s.fontHome}>{props.name}</span>
           <img src={props.flags} alt="Flag image." className={s.img} />
-          <p>{props.continents}</p>
+          <p className={s.fontHome}>{props.continents}</p>
         </div>
       </Link>
     </div>

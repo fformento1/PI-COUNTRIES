@@ -5,17 +5,19 @@
     list-style: none;
     align-items: center;
     justify-content: center;
-    height: 2em;
+    height: 1em;
     width: 100%;
     flex-wrap: wrap;
 }
 
 .listas {
     margin: 0.5rem;
+    height: 4em;
     padding: 0.5em;
-    width: 1.5em;
-    background-color: gray;
+    width: 2em;
+    background-color: rgba(117, 108, 108, 0.589);
     border-radius: 50%;
+    text-align: center;
 }
 
 .listas:hover {

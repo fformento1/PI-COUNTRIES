@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import s from "../SearchBar/SearchBar.module.css";
 
 export const SearchBar = () => {
   const [buscar, setBuscar] = useState("");
@@ -9,16 +10,17 @@ export const SearchBar = () => {
   }
 
   return (
-    <div>
+    <div className={s.div}>
       <nav>
-        <ul>
-          <Link to="/home/">
-            <li>Home</li>
+        <ul className={s.ul}>
+          <Link to="/home/" className={s.fontHome}>
+            <li className={s.li}>Home</li>
           </Link>
-          <Link to="/form">
-            <li>Create activity</li>
+          <Link to="/form" className={s.fontHome}>
+            <li className={s.li}>Create activity</li>
           </Link>
           <input
+            className={s.li2}
             placeholder="Search by name"
             value={buscar}
             onChange={(e) => {

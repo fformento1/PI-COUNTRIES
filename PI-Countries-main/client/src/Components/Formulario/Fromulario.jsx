@@ -142,7 +142,7 @@ export const CreateActivity = () => {
               }
             }}
           />
-          <span>HS.</span>
+          <span className={s.font}>HS.</span>
         </div>
         <span>{errorDuration}</span>
         <div>
@@ -200,7 +200,7 @@ export const CreateActivity = () => {
         </div>
         <span>{errorSelectCountries}</span>
         <div>
-          <input type="submit"></input>
+          <input type="submit" value="Send"></input>
         </div>
       </form>
     </div>

@@ -1,6 +1,6 @@
 .fotoDeFondo {
-  background-image: url("https: //st.depositphotos.com/1484771/4898/v/600/depositphotos_48983851-stock-illustration-background-with-vintage-stamps.jpg") no-repeat center center fixed;
-  background-size: cover;
+  background: url(./FotoMain.jpg) no-repeat center center fixed;
+  background-size:cover;
   min-height: 100vh;
   box-sizing: border-box;
 }

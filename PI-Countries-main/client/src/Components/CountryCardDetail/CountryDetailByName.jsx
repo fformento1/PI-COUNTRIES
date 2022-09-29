@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import CountryCard from "../CountryCard/CountryCard";
+import s from "../CountryCardDetail/CountryDetailByName.module.css";
 
 export const CountryDetailByName = () => {
   const search = useLocation().search;
@@ -13,17 +14,24 @@ export const CountryDetailByName = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getCountryByName(name));
-  }, []);
+  }, [countries]);
 
   if (typeof countries.error === "string") {
     return (
-      <div>
-        <p>Country not found</p>
+      <div className={s.divContenedor}>
+        <div className={s.div}>
+          <p>Country not found</p>
+          <img
+            src="https://previews.123rf.com/images/yupiramos/yupiramos1802/yupiramos180224348/96038438-ilustraci%C3%B3n-de-dibujos-animados-de-planeta-triste-tierra.jpg"
+            alt="Country image"
+            className={s.img}
+          />
+        </div>
       </div>
     );
   } else {
     return (
-      <div>
+      <div className={s.countryContainer}>
         {countries.length > 0 ? (
           countries.map((el) => (
             <CountryCard

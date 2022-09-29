@@ -1,0 +1,37 @@
+.div {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.ul {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 2em;
+    width: 100%;
+    list-style: none
+}
+
+.li {
+    margin: 1em;
+    padding: 1px;
+}
+
+.li2 {
+    margin: 1em;
+    padding: 1px;
+}
+
+.fontHome {
+    color: grey;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: x-large;
+    text-decoration: none;
+    font-weight: lighter;
+    letter-spacing: 0, 2rem;
+}
