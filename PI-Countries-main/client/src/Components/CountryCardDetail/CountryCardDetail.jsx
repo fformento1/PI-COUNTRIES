@@ -23,22 +23,22 @@ export const CountryCardDetail = () => {
         <p className={s.fontHome}>Subregion: {country.subregion}</p>
         <p className={s.fontHome}>Area: {country.area} km2.</p>
         <p className={s.fontHome}>Population: {country.population}</p>
-        <p className={s.divActivity}>
-          Activities:{" "}
-          {country.activities?.length === 0
-            ? "There are no activities related to this country."
-            : country.activities?.map((el) => (
-                <div>
-                  <span>{el.name}</span>
-                  <span>{el.dificultad}</span>
-                  <span>{el.duracion}</span>
-                  <span>{el.temporada}</span>
-                </div>
-              ))}
-        </p>
       </div>
       <div className={s.divFlag}>
         <img src={country.flags} alt="Flag image." className={s.img} />
+      </div>
+      <div className={s.div}>
+        <p className={s.divActivity}>Activities </p>
+        {country.activities?.length === 0
+          ? "There are no activities related to this country."
+          : country.activities?.map((el) => (
+              <div>
+                <p className={s.fontHome}>Name: {el.name}</p>
+                <p className={s.fontHome}>Difficulty: {el.dificultad}</p>
+                <p className={s.fontHome}>Duration: {el.duracion}</p>
+                <p className={s.fontHome}>Season: {el.temporada}</p>
+              </div>
+            ))}
       </div>
     </div>
   );
